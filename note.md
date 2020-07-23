@@ -14,7 +14,7 @@ Jupyter NoteBook
 有一定的基础
 
 将Pycharm 与Anaconda 关联，可以使用Anaconda自带的包
-
+就是在创建工程的时候注意添加anaconda的python编译器
 Python 变量
 变量y:用于存储数据
 Python 变量的命名规则
@@ -232,8 +232,72 @@ KeyError 键不存在
 BaseException 程序运行，遇到任何异常
 
 
+认识最常见的文件类型：
+.CSV   逗号分隔的值，与表格类似  CSV、pandas.read_csv()
+.json  网上传输结构数据，解析后类似字典与列表的嵌套 json
+        pandas.read_json()
+.xlsx  电子表格格式  pandas.read_excel()
+.zip    压缩文件   zipfile
+.txt    纯文本格式  open()
+.xml    扩展标记语言，具有编码数据规则  xml
+
+
 
 
 
 
 Django
+console下：pip install virtualenv
+各种报错
+
+
+爬虫
+基于B/S模式的数据采集技术
+按照一定的规则，自动地抓取外围网信息的程序
+关于爬虫
+    以一个或多个页面为爬取起点
+    从页面中提取链接实现深度爬取
+
+爬虫举例
+    第三方抢票软件
+    机器学习（微软小冰/百度机器人）
+    数据调研
+
+爬虫在做什么
+    网络请求
+    网页解析
+        目标数据抓取
+        爬取驱动逻辑
+    数据保存
+
+Scarpy爬虫框架
+什么是框架
+    一个半成品的软甲项目
+    实现了软件的基础功能
+    规定了一系列实现功能的规则和接口
+框架的优势
+    提高开发效率
+    专注于业务逻辑的实现
+Scarpy：
+一款基于Python语言的爬虫框架
+上手简单
+多线程，爬取效率高
+简介高效
+
+配置环境：（scrapy）
+Anaconda prompt 命令行：scrapy
+安装好之后将 Anaconda prompt 下的Scrpts路径添加到环境变量path下面
+win+r cmd命令行输入:scrapy 出现版本信息证明环境变量修改成功
+命令行:scrapy startproject 工程名称
+进入到自己创建的文件夹目录下
+命令行：cd 工程名称
+命令行：scrapy genspider spiderexample www.qq.com
+然后用Pycharm启动工程
+命令行:scrapy crawl spiderexample (启动爬虫)
+
+让pycharm能够debug scrapy
+script path:  D:\Softwarsetup\SoftWare\Anaconda\Lib\site-packages\scrapy\cmdline.py
+paremeters:
+crawl spiderexample
+working directory:
+C:\Users\27367\SCRAPY\ScrapyExample

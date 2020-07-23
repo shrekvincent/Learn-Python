@@ -1,26 +1,20 @@
-'''
-print("Hello World!")
-import dexplot as dxp
-import pandas as pd
-airbnb = dxp.load_dataset('airbnb')
-airbnb.head()
-airbnb.shape
-(4581, 12)
-dxp.bar(x = 'neighborhood', y = 'price', data = airbnb, aggfunc = 'median')
-dxp.line(x = 'neighborhood', y = 'price', data = airbnb, aggfunc = 'median')
-'''
+import os
+import segyio
+import numpy as np
 
-'''
-a = 21
-b = 10
-c = 0
-if ( a == b ):
-    print ("1 - a 等于 b")
-else:
-    print ("1 - a 不等于 b")
-if ( a != b ):
-    print ("2 - a 不等于 b")
-else:
-    print("2 - a 等于 b")
-'''
+filename = 'small.sgy'
+with segyio.open(filename) as segyfile:
 
+    # Memory map file for faster reading (especially if file is big...)
+    segyfile.mmap()
+
+    # Print binary header info
+    print(segyfile.bin)
+    print(segyfile.bin[segyio.BinField.Traces])
+
+    # Read headerword inline for trace 10
+    print(segyfile.header[10][segyio.TraceField.INLINE_3D])
+
+    # Print inline and crossline axis
+    print(segyfile.xlines)
+    print(segyfile.ilines)
